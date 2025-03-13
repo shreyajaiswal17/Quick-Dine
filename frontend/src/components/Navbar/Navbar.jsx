@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import 'boxicons'
+// import 'boxicons'
 import { assets } from '../../assets/assets.js'; 
 
 const Navbar = () => {

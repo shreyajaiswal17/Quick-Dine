@@ -1,0 +1,47 @@
+.header {
+    width: 80%; /* Ensures centering */
+    height: 34vw;
+    margin: 20px auto;
+    background: url('/header_img.png') no-repeat;
+    background-size:cover;
+    background-position: center;
+    position: relative;
+}
+
+
+.header-contents{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    animation: fadeIn 3s ;
+
+}
+
+.header-contents h2 {
+    font-weight: 500;
+    color: rgba(25, 25, 25, 0.792);
+    font-size: max(4.5vw, 22px);
+    text-shadow: 2px 1.5px 2px rgba(0, 0, 0, 0.805); /* Dark shadow for contrast */
+    /*  X-offset Y-offset Blur-radius Shadow-color; */
+
+}
+
+.header-contents p{
+    color: rgb(8, 8, 8);
+    font-size: 1vw;
+    font-weight: 600;
+}
+.header-contents button{
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: red;
+    border-radius: 50px;
+    font-size: max(1vw,13px);
+}

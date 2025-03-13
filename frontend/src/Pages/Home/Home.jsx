@@ -1,8 +1,15 @@
 import React from 'react'
+import './Home.css'
+import Header from '../../components/Header/Header'
+import Menu from '../../components/ExploreMenu/Menu'
+
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Header/>
+      <Menu/>
+    </div>
   )
 }
 
