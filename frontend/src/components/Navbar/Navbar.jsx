@@ -1,11 +1,11 @@
-
 import React, { useState } from 'react';
 import './Navbar.css';
+import 'boxicons'
 import { assets } from '../../assets/assets.js'; 
 
 const Navbar = () => {
-
   const [menu, setMenu] = useState("home")
+
   return (
     <div className='navbar'>
       <img src={assets.logo} alt="Logo" className='logo'/> 
@@ -17,6 +17,7 @@ const Navbar = () => {
       </ul>
       <div className="navbar-right">
         <img  src={assets.search_icon} alt="" />
+        {/* <box-icon name='search'></box-icon> */}
         <div className="navbar-search-icon">
           <img src={assets.basket_icon} alt =""/>
            <div className="dot"></div>
