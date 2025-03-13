@@ -1,0 +1,59 @@
+.explore-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;  /* Centers content inside */
+    text-align: center;   /* Centers text inside */
+    width: 80%;           /* Adjust width for better layout */
+    margin: 0 auto;       /* Centers the entire section */
+}
+
+.explore-menu h1 {
+    color: #262626;
+    font-weight: 500;
+}
+
+.explore-menu-text {
+    max-width: 60%;
+    color: #808080;  
+}
+
+/* Scrollable menu list, now centered */
+.explore-menu-list {
+    display: flex;
+    justify-content: center;  /* Centering content */
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    margin: 20px auto; /* Centering horizontally */
+    overflow-x: scroll;
+    width: 100%; /* Ensures it doesn’t shrink */
+}
+
+.explore-menu-list::-webkit-scrollbar{
+    display: none;
+}
+.explore-menu-list-items img{
+    width: 7.5vw;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.explore-menu-list-items p{
+    margin-top: 10px;
+    color: #747474;
+    font-size: max(1.4vw,16px);
+    cursor: pointer;
+}
+
+.explore-menu hr {
+    margin: 10px 0;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+     
+}
+
+

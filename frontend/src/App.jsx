@@ -7,7 +7,6 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder'
 function App() {
   return (
     <>
-      {/* Mount the navbar */}
       <Navbar />
       <Routes>
         <Route path='/' element ={<Home/>} />
@@ -15,6 +14,7 @@ function App() {
         <Route path='/order' element ={<PlaceOrder/>} />
       </Routes>
     </>
+
   );
 }
 

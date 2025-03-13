@@ -18,6 +18,9 @@ function Menu() {
             )
         })}
       </div>
+
+      <hr/>
+      
     </div>
   )
 }
