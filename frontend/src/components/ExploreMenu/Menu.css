@@ -56,4 +56,9 @@
      
 }
 
+.explore-menu-list-items .active{
+    border: 4px solid rgb(230, 60, 60);
+    padding: 2px;
+}
+
 
