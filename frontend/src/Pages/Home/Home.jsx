@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import './Home.css'
 import Header from '../../components/Header/Header'
 import Menu from '../../components/ExploreMenu/Menu'
+import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
+
 
 
 function Home() {
 
+  // UI updates dynamically, React updates UI when category changes
   const [category, setCategory] =  useState("All")
   // is used to show all menu items before any category is selected.
   return (
@@ -13,6 +16,7 @@ function Home() {
 
       <Header/>
       <Menu  category={category}  setCategory={setCategory}/>
+    <FoodDisplay category={category}></FoodDisplay>
     </div>
   )
 }
