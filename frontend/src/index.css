@@ -6,6 +6,7 @@
   box-sizing: border-box;
   /* Padding and border are included inside the width and height. */
   font-family: outfit;
+  scroll-behavior: smooth;
 }
 
 body{
