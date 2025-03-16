@@ -1,5 +1,5 @@
 .header {
-    width: 80%; /* Ensures centering */
+    width: 90%; /* Ensures centering */
     height: 34vw;
     margin: 20px auto;
     background: url('/header_img.png') no-repeat;
@@ -10,6 +10,7 @@
 
 
 .header-contents{
+    
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,8 @@
 }
 
 .header-contents h2 {
-    font-weight: 500;
+   
+    font-weight: 400;
     color: rgba(25, 25, 25, 0.792);
     font-size: max(4.5vw, 22px);
     text-shadow: 2px 1.5px 2px rgba(0, 0, 0, 0.805); /* Dark shadow for contrast */
@@ -32,11 +34,13 @@
 }
 
 .header-contents p{
+    
     color: rgb(8, 8, 8);
     font-size: 1vw;
-    font-weight: 600;
+    font-weight: 700;
 }
 .header-contents button{
+   
     border: none;
     color: white;
     font-weight: 500;
