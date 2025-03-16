@@ -16,7 +16,8 @@ function Home() {
 
       <Header/>
       <Menu  category={category}  setCategory={setCategory}/>
-    <FoodDisplay category={category}></FoodDisplay>
+      <FoodDisplay category={category}/>
+      
     </div>
   )
 }
