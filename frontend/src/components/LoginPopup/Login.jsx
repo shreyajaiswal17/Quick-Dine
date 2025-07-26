@@ -4,7 +4,8 @@ import { assets } from '../../assets/assets';
 
 const Login = ({setShowLogin}) => {
     const [currState, setCurrState] = useState("Sign Up")
-  return (
+    
+  return (  
     <div className='login'>
       <form className="login-container">
         <div className="login-title">

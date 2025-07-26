@@ -69,4 +69,6 @@
 
 .login p span {
     color: #dc2828;
+    cursor: pointer;
+    font-weight: 500;
 }
