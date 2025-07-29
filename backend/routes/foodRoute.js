@@ -15,9 +15,11 @@ const storage = multer.diskStorage({
     }
 })
 
+// pass it into Multer to create the middleware:
 const upload = multer({storage:storage})
 
 // Routes
+// Express doesn't understand how to extract files from the request body.
 foodRouter.post('/add', upload.single('image'), addFood);
 
 export default foodRouter;

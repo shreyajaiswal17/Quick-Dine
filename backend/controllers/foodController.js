@@ -6,15 +6,25 @@ import fs from 'fs';
 
 const addFood = async (req, res) => {
     try {
+        
         if (!req.file) {
             return res.status(400).json({ success: false, message: "Image file missing" });
         }
 
         let image_filename = `${req.file.filename}`;
-        const price = Number(req.body.price);
         
-        if (isNaN(price)) {
-            return res.status(400).json({ success: false, message: "Price must be a number" });
+        // Handle price field (check for both 'price' and 'price ' due to potential trailing space)
+        const priceValue = req.body.price || req.body['price '];
+        
+        if (!priceValue || priceValue.toString().trim() === '') {
+            return res.status(400).json({ success: false, message: "Price is required" });
+        }
+        
+        const price = Number(priceValue.toString().trim());
+        console.log("Converted price:", price);
+        
+        if (isNaN(price) || price <= 0) {
+            return res.status(400).json({ success: false, message: "Price must be a valid positive number" });
         }
 
         const food = new foodModel({
