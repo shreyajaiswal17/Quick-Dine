@@ -20,5 +20,9 @@ a{
 hr{
   border: none;
   height: 1px;
-  background-color:#a9a9a9 ;
+  background-color:#f4eeee;
+}
+
+.app-content{
+  display: flex;
 }

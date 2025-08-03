@@ -1,7 +1,7 @@
 import React from 'react'
-import './Navbar.css';
+import "./List.css"
 
-const Navbar = () => {
+const List = () => {
   return (
     <div>
       
@@ -9,5 +9,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
-
+export default List
