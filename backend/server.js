@@ -3,6 +3,8 @@ import cors from 'cors';
 import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
 import path from 'path';
+import userRouter from './routes/userRoute.js';
+import 'dotenv/config'
 
 // app config
 const app = express()
@@ -20,7 +22,7 @@ app.use("/api/food", foodRouter)
 app.use("/images", express.static(path.join(process.cwd(), 'uploads'))); 
 //  gives the current root directory of your project
 // this creates an absolute path to the uploads directory relative to where your server is running
-
+app.use("/api/user",userRouter)
 
 
 
