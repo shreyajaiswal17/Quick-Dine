@@ -6,8 +6,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 // Axios is a tool used to talk to your backend from your frontend (React)
 
-const Add = () => {
-  const url = "http://localhost:4000";
+const Add = ({url}) => {
+
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
