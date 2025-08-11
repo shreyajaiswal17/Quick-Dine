@@ -47,7 +47,11 @@ const Login = ({setShowLogin}) => {
         toast.error("An error occurred. Please try again.");
       }
     }
-    
+   
+    // At login time → token gets stored.
+// When the page reloads or the user visits later → your useEffect reads it from localStorage and restores it into React state (setToken(...)).
+// Login request → store token in localStorage → future page loads read it → automatically logged in.
+
     // It lets you handle all inputs with one function instead of separate functions for each (setName, setEmail, etc.).
     // It works for any number of fields because [name] is dynamic.
   return (  

@@ -12,7 +12,13 @@ const port = 4000;
 
 // middleware
 app.use(express.json())
-app.use(cors())
+// Converts incoming JSON data into JavaScript objects
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+    credentials: true
+}))
+// Allows cookies, authorization headers, and credentials
+// CORS is essentially your backend giving permission slips to specific websites, saying "Yes, you're allowed to talk to me!"
 
 // db connection
 connectDB();
