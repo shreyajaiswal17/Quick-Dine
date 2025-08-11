@@ -5,8 +5,9 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {   
 
-    
     const [cartItems, setCartItems] = useState({})
+    const [token, setToken] = useState("")
+    const url = "http://localhost:4000"
 
     const addToCart =(itemId)=>{
         if(!cartItems[itemId]){
@@ -34,9 +35,14 @@ const StoreContextProvider = ({ children }) => {
             }
         }
     }
-
     return totalAmount;
-};
+   };
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            setToken(localStorage.getItem("token"));
+        }
+    }, [])
 
 
     const contextValue = {
@@ -45,7 +51,10 @@ const StoreContextProvider = ({ children }) => {
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        url,
+        token,
+        setToken
     };
 
 // This contextValue object holds the data (food_list) that will be available to all components inside the StoreContextProvider.

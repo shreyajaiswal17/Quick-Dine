@@ -6,6 +6,8 @@ import Cart from './Pages/Cart/Cart'
 import PlaceOrder from './Pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer';
 import Login from './components/LoginPopup/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const  App = ()  => {
@@ -24,7 +26,7 @@ const  App = ()  => {
       </Routes>
     </div>
     <Footer/>
-    
+    <ToastContainer />
     </>
 
    
