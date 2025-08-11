@@ -14,7 +14,7 @@ const port = 4000;
 app.use(express.json())
 // Converts incoming JSON data into JavaScript objects
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000","http://localhost:5175"],
     credentials: true
 }))
 // Allows cookies, authorization headers, and credentials

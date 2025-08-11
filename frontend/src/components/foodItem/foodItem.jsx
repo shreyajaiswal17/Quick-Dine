@@ -9,14 +9,15 @@ const FoodItem = ({ id, name, price, description, image }) => {
   // const [itemCount, setItemCount] = useState(0);
 
   // Instead of multiple useState calls, we use one state object to store all cart items:
-  const {cartItems, addToCart, removeFromCart}= useContext(StoreContext);
+  const {cartItems, addToCart, removeFromCart,url}= useContext(StoreContext);
 
 
   return (
     <div className="food-item">
       <div className="food-item-img-cont">
-        <img className="food-item-image" src={image} alt="" />
-        {/* !itemCount means "if itemCount is falsy" -0 */}
+        <img className="food-item-image" src={url+"/images/"+image} alt="" />
+        {/* The DB only stores the filename or path, not the whole image itself in most cases. The <img> tag fetches it from the backend using that path. */}
+        
 
         {/* itemCount */}
         {! cartItems[id]? (

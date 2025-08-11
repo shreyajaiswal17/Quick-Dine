@@ -49,8 +49,8 @@ const StoreContextProvider = ({ children }) => {
       if (localStorage.getItem("token")) {
         setToken(localStorage.getItem("token"));
       }
-      loadData();
     }
+        loadData();
   }, []);
 
   // When the component first renders, it checks localStorage for a token.If found, it sets the token state.
