@@ -14,6 +14,7 @@ const authMiddleware = async(req,res,next) =>{
         }
         
         req.body.userId = token_decode.id;
+        // Adds it to request body so controllers can use it
         next();
     } catch (error) {
         console.log(error)

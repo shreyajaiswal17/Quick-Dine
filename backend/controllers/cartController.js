@@ -1,7 +1,7 @@
 import userModel from "../models/userModel.js"
 
 // add to cart
-
+// async/ await (sei cleaner bnn jata hai ) wrna use upromises hai yeh , 
 const addToCart = async(req,res) =>{
     try {
         let userData = await userModel.findById(req.body.userId);

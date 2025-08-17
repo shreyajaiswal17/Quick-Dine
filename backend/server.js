@@ -6,6 +6,7 @@ import path from 'path';
 import userRouter from './routes/userRoute.js';
 import 'dotenv/config'
 import cartRouter from './routes/cartRoute.js';
+import orderRouter from './routes/orderRoute.js';
 
 // app config
 const app = express()
@@ -29,8 +30,10 @@ app.use("/api/food", foodRouter)
 app.use("/images", express.static(path.join(process.cwd(), 'uploads'))); 
 //  gives the current root directory of your project
 // this creates an absolute path to the uploads directory relative to where your server is running
+// so that the images can be accessed via http://localhost:4000/images/filename.jpg
 app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter)
+app.use("/api/order",orderRouter)
 
 
 
