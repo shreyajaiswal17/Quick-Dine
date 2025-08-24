@@ -21,7 +21,7 @@ const placeOrder = async (req, res) => {
     await newOrder.save();
     await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}})
 
-    // Create a Stripe session for payment
+    // Create a Stripe session for payment - necessary for stripe 
     const line_items = req.body.items.map((item)=>({
       price_data: {
         currency: 'inr',

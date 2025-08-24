@@ -18,6 +18,40 @@ const Navbar = ({setShowLogin}) => {
     navigate("/")
   }
 
+  const handleMenuClick = () => {
+    setMenu("menu");
+    navigate("/");
+    // Small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const element = document.getElementById('explore-menu');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleMobileAppClick = () => {
+    setMenu("mobile-app");
+    navigate("/");
+    setTimeout(() => {
+      const element = document.getElementById('app-d');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleContactClick = () => {
+    setMenu("contact-us");
+    navigate("/");
+    setTimeout(() => {
+      const element = document.getElementById('footer');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <div className='navbar'>
       <Link to ='/'><img src={assets.logo} alt="Logo" className='logo'/> </Link>
@@ -27,11 +61,11 @@ const Navbar = ({setShowLogin}) => {
       
         <Link to='/' onClick={()=>setMenu("home")} className = {menu == "home"?"active":""}>Home</Link>
 
-        <a href='#explore-menu' onClick={()=>setMenu("menu")} className = {menu =="menu"?"active":""}>Menu</a>
+        <a href="#" onClick={handleMenuClick} className = {menu =="menu"?"active":""}>Menu</a>
         
 
-        <a href='#app-d'onClick={()=>setMenu("mobile-app")} className = {menu == "mobile-app"?"active":""}>Mobile-app</a>
-        <a href='#footer' onClick={()=>setMenu("contact-us")} className = {menu == "contact-us"?"active":""}>Contact Us</a>
+        <a href="#" onClick={handleMobileAppClick} className = {menu == "mobile-app"?"active":""}>Mobile-app</a>
+        <a href="#" onClick={handleContactClick} className = {menu == "contact-us"?"active":""}>Contact Us</a>
       </ul>
       <div className="navbar-right">
         <img  src={assets.search_icon} alt="" />
