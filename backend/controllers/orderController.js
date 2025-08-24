@@ -3,7 +3,7 @@ import userModel from "../models/userModel.js";
 import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
-const frontend_url = "http://localhost:5173"
+const frontend_url = "http://localhost:5174"
 //  placing user order for frontend 
 const placeOrder = async (req, res) => {
   const { userId, items, amount, address } = req.body;
@@ -100,7 +100,8 @@ const listOrders = async(req,res) =>{
 
 }
 
-// updating order status
+// api for updating order status
+
 const updateStatus = async(req,res) => {
   try {
     await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status});

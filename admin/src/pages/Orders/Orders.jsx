@@ -29,6 +29,7 @@ const Orders = ({url}) => {
       await fetchOrders();
     }
   }
+  
   useEffect(() => {
     fetchOrders();
   }, []);
