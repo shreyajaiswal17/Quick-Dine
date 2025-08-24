@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import Login from './components/LoginPopup/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Verify from './Pages/Verify/Verify';
 
 
 const  App = ()  => {
@@ -23,8 +24,8 @@ const  App = ()  => {
         <Route path='/' element ={<Home/>} />
         <Route path='/cart' element ={<Cart/>} />
         <Route path='/order' element ={<PlaceOrder/>} />
-      </Routes>
-      
+        <Route path='/verify' element={Verify}/>
+      </Routes>   
     </div>
     <Footer/>
     <ToastContainer />
