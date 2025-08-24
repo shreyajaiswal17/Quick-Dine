@@ -10,13 +10,13 @@ import orderRouter from './routes/orderRoute.js';
 
 // app config
 const app = express()
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 // middleware
 app.use(express.json())
 // Converts incoming JSON data into JavaScript objects
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000","http://localhost:5175"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000","http://localhost:5175", "https://your-frontend-app.vercel.app", "https://your-admin-app.vercel.app"],
     credentials: true
 }))
 // Allows cookies, authorization headers, and credentials

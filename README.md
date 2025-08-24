@@ -118,6 +118,56 @@ npm install
 npm run dev
 ```
 The admin panel will run on `http://localhost:5174`
+<!-- 
+## 🚀 Deployment
+
+### Backend Deployment (Render)
+
+1. **Push to GitHub**: Make sure your code is pushed to GitHub
+2. **Create Render Account**: Sign up at [render.com](https://render.com)
+3. **Create Web Service**:
+   - Connect your GitHub repository
+   - Select the `backend` folder
+   - Set build command: `npm install`
+   - Set start command: `npm start`
+4. **Environment Variables**: Add these in Render dashboard:
+   ```
+   NODE_ENV=production
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   STRIPE_SECRET_KEY=your_stripe_secret_key
+   FRONTEND_URL=https://your-frontend-app.vercel.app
+   ```
+
+### Frontend Deployment (Vercel)
+
+1. **Install Vercel CLI**:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy Frontend**:
+   ```bash
+   cd frontend
+   vercel --prod
+   ```
+
+3. **Deploy Admin Panel**:
+   ```bash
+   cd admin
+   vercel --prod
+   ```
+
+4. **Environment Variables**: Add in Vercel dashboard:
+   ```
+   VITE_BACKEND_URL=https://your-backend-app.onrender.com
+   ```
+
+### Post-Deployment Steps
+
+1. **Update CORS**: Replace the placeholder URLs in `server.js` with your actual Vercel URLs
+2. **Update Environment Files**: Replace placeholder URLs in `.env` files with actual deployment URLs
+3. **Test All Features**: Verify authentication, payments, and file uploads work in production -->
 
 ## 📊 Database Models
 
