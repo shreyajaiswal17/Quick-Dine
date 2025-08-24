@@ -247,17 +247,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Shreya Jaiswal**
 - GitHub: [@shreyajaiswal17](https://github.com/shreyajaiswal17)
 
-## 🙏 Acknowledgments
 
-- React.js community for excellent documentation
-- Stripe for payment processing
-- MongoDB for database solutions
-- All open-source contributors who made this project possible
-
-## 📞 Support
-
-If you have any questions or issues, please open an issue on GitHub or contact the maintainer.
-
----
 
 ⭐ If you like this project, please give it a star on GitHub!
