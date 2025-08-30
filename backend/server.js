@@ -16,7 +16,7 @@ const port = process.env.PORT || 4000;
 app.use(express.json())
 // Converts incoming JSON data into JavaScript objects
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000","http://localhost:5175", "https://your-frontend-app.vercel.app", "https://your-admin-app.vercel.app"],
+    origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000","http://localhost:5175", "https://quick-dine-admin.vercel.app", "https://quick-dine-frontend.vercel.app"],
     credentials: true
 }))
 // Allows cookies, authorization headers, and credentials
