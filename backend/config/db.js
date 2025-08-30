@@ -4,5 +4,5 @@ import mongoose from 'mongoose';
 
 export const connectDB = async () => {
     // Waits for the Promise to resolve
-    await mongoose.connect('mongodb+srv://Shreya:shreya@cluster0.byzqqjq.mongodb.net/Quick-Dine').then(()=>console.log("DB connected"))
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Shreya:shreya@cluster0.byzqqjq.mongodb.net/Quick-Dine').then(()=>console.log("DB connected"))
 }
