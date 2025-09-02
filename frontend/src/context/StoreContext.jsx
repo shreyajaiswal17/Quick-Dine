@@ -11,6 +11,7 @@ const StoreContextProvider = ({ children }) => {
   const [food_list, setFoodList] = useState([]);
 
   const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+  console.log("🚀 Backend URL being used:", url); // Debug log
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
