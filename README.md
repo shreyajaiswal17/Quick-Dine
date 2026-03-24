@@ -169,41 +169,6 @@ The admin panel will run on `http://localhost:5174`
 2. **Update Environment Files**: Replace placeholder URLs in `.env` files with actual deployment URLs
 3. **Test All Features**: Verify authentication, payments, and file uploads work in production -->
 
-## 📊 Database Models
-
-### User Model
-```javascript
-{
-  name: String,
-  email: String,
-  password: String,
-  cartData: Object
-}
-```
-
-### Food Model
-```javascript
-{
-  name: String,
-  description: String,
-  price: Number,
-  image: String,
-  category: String
-}
-```
-
-### Order Model
-```javascript
-{
-  userId: String,
-  items: Array,
-  amount: Number,
-  address: Object,
-  status: String,
-  date: Date,
-  payment: Boolean
-}
-```
 
 ## 🔗 API Endpoints
 
@@ -288,11 +253,11 @@ STRIPE_SECRET_KEY=sk_test_your_stripe_key_here
 4. Push to the branch (`git push origin feature/new-feature`)
 5. Create a Pull Request
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Shreya Jaiswal**
 - GitHub: [@shreyajaiswal17](https://github.com/shreyajaiswal17)
