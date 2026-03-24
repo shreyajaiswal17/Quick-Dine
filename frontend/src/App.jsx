@@ -7,7 +7,6 @@ import PlaceOrder from './Pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer';
 import Login from './components/LoginPopup/Login';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Verify from './Pages/Verify/Verify';
 import MyOrders from './Pages/MyOrders/MyOrders';
 
