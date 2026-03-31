@@ -84,8 +84,3 @@ const Login = ({setShowLogin}) => {
 export default Login
 
 
-// To site to ek baar load ho gaya
-// Data lekin constant nahi hai
-// To you can set useEffect timer at 2 sec....to wo har 2 sec pe check karega
-// useEffect timer lagaega.....and useState value state update karega
-// Is trh se state management hoga

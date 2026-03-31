@@ -27,10 +27,7 @@ const loginUser = async (req, res) => {
     });
     res.json({success:true, message:"Logged in successfully"})
 
-// This sends the response back to the frontend in JSON format.
-// token → gives the frontend the JWT so it can store it and send it in future requests.
-// Why return the token?
-// Because in stateless authentication, the backend doesn’t store login sessions. Instead, the frontend must send this token in the Authorization header every time it calls a protected API
+
 
   } catch (error) {
     console.log(error);

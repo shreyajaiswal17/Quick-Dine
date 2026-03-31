@@ -82,9 +82,11 @@ const StoreContextProvider = ({ children }) => {
     loadData();
   }, []);
 
-  // When the component first renders, it checks localStorage for a token.If found, it sets the token state.
-  // This allows your app to remember a logged-in user across page reloads.
-  // Without it, your token state would start empty every time the page is refreshed, even if the browser still has the token saved.
+// 6. Browser reloads (or navigates elsewhere)
+// 7. StoreContext's useEffect runs
+// 8. Calls /api/user/verify with cookies auto-attached ✅
+// 9. Backend verifies cookie & returns success
+// 10. User stays logged in! No need for manual token management in localStorage. Just rely on cookies and backend verification on each load.
 
   const contextValue = {
     food_list,
