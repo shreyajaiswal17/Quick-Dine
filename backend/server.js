@@ -8,10 +8,14 @@ import userRouter from './routes/userRoute.js';
 import 'dotenv/config'
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
+import { handleWebhook } from './controllers/orderController.js';
 
 // app config
 const app = express()
 const port = process.env.PORT || 4000;
+
+// 🔴 IMPORTANT: Webhook route MUST be before express.json() to receive raw body for signature verification
+app.post('/api/order/webhook', express.raw({type: 'application/json'}), handleWebhook);
 
 // middleware
 app.use(express.json())
