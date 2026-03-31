@@ -32,11 +32,11 @@ const Login = ({setShowLogin}) => {
       }
 
       try {
-        const response = await axios.post(newUrl, data);
+        const response = await axios.post(newUrl, data, {
+          withCredentials: true
+        });
         
         if (response.data.success) {
-          setToken(response.data.token);
-          localStorage.setItem("token", response.data.token);
           setShowLogin(false);
           toast.success(currState === "Login" ? "Logged in successfully!" : "Account created successfully!");
         } else {

@@ -37,7 +37,9 @@ function PlaceOrder() {
       items:orderItems,
       amount:getTotalCartAmount()===0?0: getTotalCartAmount()+2,
     }
-    let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}});
+    let response = await axios.post(url+"/api/order/place",orderData,{
+      withCredentials: true
+    });
     if(response.data.success){
       const {session_url} = response.data;
       window.location.replace(session_url);

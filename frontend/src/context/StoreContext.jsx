@@ -21,13 +21,17 @@ const StoreContextProvider = ({ children }) => {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
     if(token){
-      await axios.post(url + "/api/cart/add", { itemId},{headers: { token }});
+      await axios.post(url + "/api/cart/add", { itemId },{
+        withCredentials: true
+      });
     }
   };
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if(token){
-      await axios.post(url + "/api/cart/remove", { itemId},{headers: { token }});
+      await axios.post(url + "/api/cart/remove", { itemId },{
+        withCredentials: true
+      });
     }
   };
 
@@ -53,7 +57,7 @@ const StoreContextProvider = ({ children }) => {
   const loadCartData = async () => {
     if (token) {
       const response = await axios.post(url + "/api/cart/get", {}, {
-        headers: { token },
+        withCredentials: true
       });
       setCartItems(response.data.cartData);
     }
@@ -62,12 +66,20 @@ const StoreContextProvider = ({ children }) => {
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();
-      if (localStorage.getItem("token")) {
-        setToken(localStorage.getItem("token"));
-        await loadCartData(localStorage.getItem("token"));
+      // Verify auth status with backend (cookie is auto-sent)
+      try {
+        const response = await axios.post(url + "/api/user/verify", {}, {
+          withCredentials: true
+        });
+        if (response.data.success && response.data.token) {
+          setToken(response.data.token);
+          await loadCartData();
+        }
+      } catch (error) {
+        console.log("User not authenticated");
       }
     }
-        loadData();
+    loadData();
   }, []);
 
   // When the component first renders, it checks localStorage for a token.If found, it sets the token state.

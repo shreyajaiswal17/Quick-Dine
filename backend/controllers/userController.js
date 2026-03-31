@@ -19,7 +19,13 @@ const loginUser = async (req, res) => {
       return res.json({success:false, message:"Invalid credentials"})
     }
     const token = createToken(user._id);
-    res.json({success:true, token})
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60 * 1000
+    });
+    res.json({success:true, message:"Logged in successfully"})
 
 // This sends the response back to the frontend in JSON format.
 // token → gives the frontend the JWT so it can store it and send it in future requests.
@@ -67,7 +73,13 @@ const registerUser = async (req, res) => {
 
     const user = await newUser.save()
     const token = createToken(user._id)
-    res.json({success:true,token})
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60 * 1000
+    });
+    res.json({success:true, message:"Account created successfully"})
 
 } catch (error) {
     console.log(error);
@@ -75,4 +87,30 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser };
+// verify user (check if token is valid)
+const verifyUser = async (req, res) => {
+  try {
+    // If this function is called, it means authMiddleware verified the token
+    res.json({success:true, token: req.cookies.token})
+  } catch (error) {
+    console.log(error);
+    res.json({success:false, message:"Error"})
+  }
+};
+
+// logout user
+const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict'
+    });
+    res.json({success:true, message:"Logged out successfully"})
+  } catch (error) {
+    console.log(error);
+    res.json({success:false, message:"Error"})
+  }
+};
+
+export { loginUser, registerUser, verifyUser, logoutUser };
