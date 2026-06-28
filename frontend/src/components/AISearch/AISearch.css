@@ -1,0 +1,137 @@
+
+.ai-search {
+  margin: 10px 0 20px;
+  padding: 28px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(220px, 0.8fr)
+    minmax(320px, 1.2fr);
+
+  align-items: center;
+  gap: 32px;
+
+  color: #26324b;
+  background: linear-gradient(120deg, #fff4f2, #f4fbff);
+  border: 1px solid #f1ddd8;
+  border-radius: 18px;
+}
+
+.ai-search-label {
+  color: #d54a4a;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.ai-search h2 {
+  margin: 6px 0;
+  font-size: clamp(24px, 3vw, 34px);
+}
+
+.ai-search p {
+  margin: 0;
+  color: #65708a;
+}
+
+.ai-search-form {
+  width: 100%;
+}
+
+.ai-search-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-search input {
+  min-width: 0;
+  flex: 1;
+
+  padding: 14px 16px;
+
+  border: 1px solid #cdd5e2;
+  border-radius: 10px;
+
+  font: inherit;
+  outline: none;
+}
+
+.ai-search input:focus {
+  border-color: #d54a4a;
+  box-shadow: 0 0 0 3px rgba(213, 74, 74, 0.12);
+}
+
+.ai-search button {
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: white;
+  background: #d54a4a;
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ai-search button:hover {
+  background: #c63f3f;
+}
+
+.ai-search button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.ai-search .ai-search-clear {
+  color: #495574;
+  background: transparent;
+  border: 1px solid #cdd5e2;
+}
+
+.ai-search .ai-search-clear:hover {
+  background: white;
+}
+
+.ai-search .ai-search-error {
+  margin-top: 10px;
+  color: #b42318;
+}
+
+/* Tablet and mobile */
+@media (max-width: 750px) {
+  .ai-search {
+    margin: 8px 0 18px;
+    padding: 22px;
+
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ai-search-input-row {
+    flex-wrap: wrap;
+  }
+
+  .ai-search input {
+    flex-basis: 100%;
+  }
+
+  .ai-search button {
+    min-height: 44px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .ai-search {
+    padding: 18px;
+  }
+
+  .ai-search button {
+    flex: 1;
+    padding: 10px 14px;
+  }
+}
