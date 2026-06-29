@@ -35,7 +35,7 @@ export default function Login({ onAuthenticated, accessNotice, clearAccessNotice
         return;
       }
     } catch (error) {
-      setMessage("You don't have access to the admin dashboard.");
+      setMessage("You don't have access to the admin dashboard.Check Your credentials.");
     } finally {
       setIsSubmitting(false);
     }
