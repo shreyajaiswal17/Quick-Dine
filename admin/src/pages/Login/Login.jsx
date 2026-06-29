@@ -24,7 +24,7 @@ export default function Login({ onAuthenticated, accessNotice, clearAccessNotice
       );
 
       if (!response.data?.success) {
-        setMessage(response.data?.message || "Incorrect email or password.");
+        setMessage(response.data?.message || "You don't have access to the admin dashboard.");
         return;
       }
 
@@ -35,7 +35,7 @@ export default function Login({ onAuthenticated, accessNotice, clearAccessNotice
         return;
       }
     } catch (error) {
-      setMessage(error.response?.data?.message || "Login failed. Please try again.");
+      setMessage(error.response?.data?.message || "You don't have access to the admin dashboard.");
     } finally {
       setIsSubmitting(false);
     }
