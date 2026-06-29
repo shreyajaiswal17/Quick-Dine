@@ -1,8 +1,10 @@
 import express from "express";
+
 import {
     loginUser,
     registerUser,
     logoutUser,
+    verifyUser,
     verifyAdmin
 } from "../controllers/userController.js";
 
@@ -15,6 +17,11 @@ userRouter.post("/register", registerUser);
 userRouter.post("/login", loginUser);
 
 userRouter.post("/logout", logoutUser);
+userRouter.post(
+    "/verify",
+    authMiddleware,
+    verifyUser
+);
 
 userRouter.get(
     "/verify-admin",

@@ -5,6 +5,8 @@ import Menu from "../../components/ExploreMenu/Menu";
 import FoodDisplay from "../../components/FoodDisplay/FoodDisplay";
 import AppDownload from "../../components/AppDownload/AppDownload";
 import AISearch from "../../components/AISearch/AISearch";
+import Recommendations from "../../components/Recommendations/Recommendations";
+import Footer from "../../components/Footer/Footer";
 
 
 
@@ -23,12 +25,13 @@ const handleAiResults = (results) => {
 };
   return (
     <div>
-      
       <AISearch onResults={handleAiResults} />
       <Header />
       <Menu category={category} setCategory={setCategory} />
       <FoodDisplay category={category} foods={aiResults} />
+      <Recommendations />
       <AppDownload />
+      <Footer />
     </div>
   );
 }
