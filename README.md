@@ -2,10 +2,21 @@
 
 A full-stack food delivery application built with React, Node.js, Express, and MongoDB. Quick-Dine allows customers to browse food items, place orders, make payments, and track their orders in real-time.
 
+## Live Demo
+
+- Customer site: [https://quick-dine-frontend-six.vercel.app](https://quick-dine-frontend-six.vercel.app)
+- Admin dashboard: [https://quick-dine-admin.vercel.app](https://quick-dine-admin.vercel.app)
+
+### Admin Demo Credentials
+
+- Email: `admindemo@gmail.com`
+- Password: `admindemo@123`
+
 ##  Features
 
 ### Customer Features
 - **Home Page** - Browse food categories and items
+- **AI Food Search** - Search food items using natural-language prompts
 - **Shopping Cart** - Add/remove items with quantity management
 - **User Authentication** - Secure login and registration with httpOnly cookies
 - **Payment Integration** - Stripe payment processing with webhook verification
@@ -246,6 +257,7 @@ The admin panel will run on `http://localhost:5174`
 
 ### Food Routes
 - `GET /api/food/list` - Get all food items
+- `POST /api/food/ai-search` - Search food items with AI-assisted natural language
 - `POST /api/food/add` - Add new food item (Admin)
 - `POST /api/food/remove` - Remove food item (Admin)
 

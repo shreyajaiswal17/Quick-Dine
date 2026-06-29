@@ -24,15 +24,20 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
         { withCredentials: true },
       );
 
+      if (!response.data?.success) {
+        setMessage(response.data?.message || "Invalid credentials");
+        return;
+      }
+
       if (response.data.success) {
         const isAdmin = await onAuthenticated?.();
 
         if (!isAdmin) {
-          setMessage("Access Denied");
+          setMessage("You don't have permission to access the admin dashboard.");
         }
       }
     } catch (error) {
-      setMessage(error.response?.data?.message || "Login failed");
+      setMessage(error.response?.data?.message || "Login failed. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -45,7 +50,7 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
 
         {(message || accessDenied) && (
           <p className="login-message login-message-error">
-            {message || "Access Denied"}
+            {message || "You don't have permission to access the admin dashboard."}
           </p>
         )}
 
