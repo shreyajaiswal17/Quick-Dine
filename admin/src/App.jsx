@@ -15,7 +15,7 @@ const App = () => {
   const url = import.meta.env.DEV ? "http://localhost:4000" : ""
 
   const [authState, setAuthState] = useState('checking')
-  const [accessDenied, setAccessDenied] = useState(false)
+  const [accessNotice, setAccessNotice] = useState('')
 
   const verifyAdmin = async ({ fromLogin = false } = {}) => {
     setAuthState('checking')
@@ -27,18 +27,16 @@ const App = () => {
 
       const isAdmin = Boolean(response.data?.success)
       setAuthState(isAdmin ? 'authenticated' : 'guest')
-      setAccessDenied(fromLogin && !isAdmin)
+      setAccessNotice(fromLogin && !isAdmin ? "You don't have access to the admin dashboard." : '')
 
       if (isAdmin) {
-        setAccessDenied(false)
+        setAccessNotice('')
       }
 
       return isAdmin
     } catch (error) {
       setAuthState('guest')
-      if (!fromLogin) {
-        setAccessDenied(false)
-      }
+      setAccessNotice(fromLogin ? "You don't have access to the admin dashboard." : '')
       return false
     }
   }
@@ -79,8 +77,8 @@ const App = () => {
     return (
       <Login
         onAuthenticated={() => verifyAdmin({ fromLogin: true })}
-        accessDenied={accessDenied}
-        clearAccessDenied={() => setAccessDenied(false)}
+        accessNotice={accessNotice}
+        clearAccessNotice={() => setAccessNotice('')}
       />
     )
   }

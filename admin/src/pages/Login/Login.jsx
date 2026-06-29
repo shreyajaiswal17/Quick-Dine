@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import './Login.css'
 
-export default function Login({ onAuthenticated, accessDenied, clearAccessDenied }) {
+export default function Login({ onAuthenticated, accessNotice, clearAccessNotice }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -13,9 +13,8 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
   const submitHandler = async (e) => {
     e.preventDefault();
     setMessage("");
-    clearAccessDenied?.();
+    clearAccessNotice?.();
     setIsSubmitting(true);
- 
 
     try {
       const response = await axios.post(
@@ -25,16 +24,15 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
       );
 
       if (!response.data?.success) {
-        setMessage(response.data?.message || "Invalid credentials");
+        setMessage(response.data?.message || "Incorrect email or password.");
         return;
       }
 
-      if (response.data.success) {
-        const isAdmin = await onAuthenticated?.();
+      const isAdmin = await onAuthenticated?.();
 
-        if (!isAdmin) {
-          setMessage("You don't have permission to access the admin dashboard.");
-        }
+      if (!isAdmin) {
+        setMessage("You don't have access to the admin dashboard.");
+        return;
       }
     } catch (error) {
       setMessage(error.response?.data?.message || "Login failed. Please try again.");
@@ -43,14 +41,16 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
     }
   };
 
+  const displayMessage = message || accessNotice || "";
+
   return (
     <div className="login">
       <form onSubmit={submitHandler}>
         <h2>Admin Login</h2>
 
-        {(message || accessDenied) && (
+        {displayMessage && (
           <p className="login-message login-message-error">
-            {message || "You don't have permission to access the admin dashboard."}
+            {displayMessage}
           </p>
         )}
 
@@ -61,7 +61,7 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
           onChange={(e) => {
             setEmail(e.target.value)
             setMessage("")
-            clearAccessDenied?.()
+            clearAccessNotice?.()
           }}
         />
 
@@ -72,7 +72,7 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
           onChange={(e) => {
             setPassword(e.target.value)
             setMessage("")
-            clearAccessDenied?.()
+            clearAccessNotice?.()
           }}
         />
 
