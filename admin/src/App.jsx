@@ -12,7 +12,7 @@ import Login from './pages/Login/Login.jsx'
  
 
 const App = () => {
-  const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000"
+  const url = import.meta.env.DEV ? "http://localhost:4000" : ""
 
   const [authState, setAuthState] = useState('checking')
   const [accessDenied, setAccessDenied] = useState(false)

@@ -8,7 +8,7 @@ export default function Login({ onAuthenticated, accessDenied, clearAccessDenied
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+  const url = import.meta.env.DEV ? "http://localhost:4000" : "";
 
   const submitHandler = async (e) => {
     e.preventDefault();
