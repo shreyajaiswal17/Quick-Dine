@@ -31,7 +31,7 @@ const handleAiResults = (results) => {
       <FoodDisplay category={category} foods={aiResults} />
       <Recommendations />
       <AppDownload />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
