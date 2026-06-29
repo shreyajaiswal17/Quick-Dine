@@ -3,8 +3,8 @@
 import express from 'express';
 import { addFood,listFood,removeFood, aiSearchFood} from '../controllers/foodController.js';
 import multer from 'multer'
-import authMiddleware from "../middleware/auth.js";
-import adminAuth from "../middleware/adminAuth.js";
+import authMiddleware from "../middlewares/auth.js";
+import adminAuth from "../middlewares/adminAuth.js";
 
 const foodRouter = express.Router();
 

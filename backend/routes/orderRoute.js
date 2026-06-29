@@ -2,7 +2,7 @@ import express from "express"
 import orderModel from "../models/orderModel.js";
 import { listOrders, placeOrder, updateStatus, userOrders, verifyOrder } from "../controllers/orderController.js";
 import authMiddleware from "../middlewares/auth.js";
-import adminAuth from "../middleware/adminAuth.js";
+import adminAuth from "../middlewares/adminAuth.js";
 
 const orderRouter = express.Router()
 
