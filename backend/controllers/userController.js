@@ -110,4 +110,40 @@ const logoutUser = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser, verifyUser, logoutUser };
+const verifyAdmin = async (req,res)=>{
+
+    try{
+
+        const user=await userModel.findById(req.body.userId);
+
+        if(!user){
+
+            return res.status(401).json({
+                success:false
+            });
+
+        }
+
+        if(user.role!=="admin"){
+
+            return res.status(403).json({
+                success:false
+            });
+
+        }
+
+        res.json({
+            success:true
+        });
+
+    }catch(error){
+
+        res.status(500).json({
+            success:false
+        });
+
+    }
+
+}
+
+export { loginUser, registerUser, verifyUser, logoutUser, verifyAdmin };

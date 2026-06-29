@@ -3,7 +3,8 @@
 import express from 'express';
 import { addFood,listFood,removeFood, aiSearchFood} from '../controllers/foodController.js';
 import multer from 'multer'
-
+import authMiddleware from "../middleware/auth.js";
+import adminAuth from "../middleware/adminAuth.js";
 
 const foodRouter = express.Router();
 
@@ -21,9 +22,22 @@ const upload = multer({storage:storage})
 
 // Routes
 // Express doesn't understand how to extract files from the request body.
-foodRouter.post('/add', upload.single('image'), addFood);
+
 foodRouter.get('/list',listFood)
-foodRouter.post('/remove',removeFood)
 foodRouter.post('/ai-search', aiSearchFood)
+
+foodRouter.post(
+    "/add",
+    authMiddleware,
+    adminAuth,
+    upload.single("image"),
+    addFood
+);
+foodRouter.post(
+    "/remove",
+    authMiddleware,
+    adminAuth,
+    removeFood
+);
 
 export default foodRouter;
